@@ -11,7 +11,7 @@ tags:
 ---
 ---
 
-# SkinGPT-R1-test
+# SkinGPT-R1
 
 **SkinGPT-R1** is a dermatological reasoning vision Language model (VLM).
 
