@@ -3,9 +3,6 @@ license: cc-by-nc-sa-4.0
 language:
 - zh
 - en
-base_model:
-- Qwen/Qwen2.5-VL-7B-Instruct
-- Osilly/Vision-R1-7B
 tags:
 - medical
 ---
