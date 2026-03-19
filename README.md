@@ -23,7 +23,7 @@ This project is for **research and educational use only**. It is **not** a subst
 ## License
 
 This repository is released under **CC BY-NC-SA 4.0**.
-See [LICENSE](/Users/smac/Documents/SkinGPT-R1/LICENSE) for details.
+See [LICENSE](LICENSE) for details.
 
 ## Structure
 
