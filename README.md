@@ -10,22 +10,26 @@ tags:
 
 # SkinGPT-R1
 
+![CUHKSZ Logo](cuhksz-logo.png)
+
 **Update:** We will soon release the **SkinGPT-R1-7B** weights.
 
-SkinGPT-R1 is a dermatological reasoning vision language model for research and education.
+![SkinGPT-R1 Figure](figure.png)
+
+SkinGPT-R1 is a dermatological reasoning vision language model for research and education. 🩺✨
 
 From **The Chinese University of Hong Kong, Shenzhen (CUHKSZ)**.
 
 ## Disclaimer
 
-This project is for **research and educational use only**. It is **not** a substitute for professional medical advice, diagnosis, or treatment.
+This project is for **research and educational use only**. It is **not** a substitute for professional medical advice, diagnosis, or treatment. ⚠️
 
 ## License
 
 This repository is released under **CC BY-NC-SA 4.0**.
 See [LICENSE](LICENSE) for details.
 
-## Structure
+## Overview
 
 ```text
 SkinGPT-R1/
@@ -42,6 +46,13 @@ Checkpoint paths:
 - Full precision: `./checkpoints/full_precision`
 - INT4 quantized: `./checkpoints/int4`
 
+## Highlights
+
+- 🔬 Dermatology-oriented multimodal reasoning
+- 🧠 Full-precision and INT4 inference paths
+- 💬 Multi-turn chat and API serving
+- ⚡ RTX 50 series friendly SDPA-backed INT4 runtime
+
 ## Install
 
 ```bash
@@ -57,10 +68,10 @@ This repo uses two attention acceleration paths:
 - `flash_attention_2`: external package, optional
 - `sdpa`: PyTorch native scaled dot product attention
 
-Recommended choice for this repo:
+Recommended choice:
 
-- RTX 50 series: use `sdpa`
-- A100 / RTX 3090 / RTX 4090 / H100 and other GPUs explicitly listed by the FlashAttention project: you can try `flash_attention_2`
+- 🚀 RTX 50 series: use `sdpa`
+- 🚀 A100 / RTX 3090 / RTX 4090 / H100 and other GPUs explicitly listed by the FlashAttention project: you can try `flash_attention_2`
 
 Practical notes:
 
@@ -124,7 +135,7 @@ The INT4 path uses:
 
 ## GPU Selection
 
-You do not need to add `CUDA_VISIBLE_DEVICES=0` if the machine has only one visible GPU or if you are fine with the default CUDA device.
+You do not need to add `CUDA_VISIBLE_DEVICES=0` if the machine has only one visible GPU or if you are fine with the default CUDA device. 🧩
 
 Use it only when you want to pin the process to a specific GPU, for example on a multi-GPU server:
 
@@ -152,5 +163,5 @@ Both API services expose the same endpoints:
 
 ## Which One To Use
 
-- Use `full_precision` when you want the original model path and best fidelity.
-- Use `int4_quantized` when GPU memory is tight or when you are on an environment where `flash-attn` is not the practical option.
+- 🎯 Use `full_precision` when you want the original model path and best fidelity.
+- ⚡ Use `int4_quantized` when GPU memory is tight or when you are on an environment where `flash-attn` is not the practical option.
