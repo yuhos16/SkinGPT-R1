@@ -14,6 +14,10 @@ fastapi>=0.100.0
 uvicorn>=0.20.0
 python-multipart>=0.0.6
 openai>=1.0.0  # For DeepSeek API (OpenAI-compatible)
+bitsandbytes>=0.43.0  # Required for INT4 quantized inference
+# Attention notes:
+# - SDPA is built into PyTorch 2.x
+# - flash-attn is optional and mainly useful on GPUs officially supported by the project
 
 # Install latest transformers from source (Required for Qwen2.5-VL/Vision-R1)
 git+https://github.com/huggingface/transformers.git
