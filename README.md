@@ -2,16 +2,11 @@
 
 ![CUHKSZ Logo](cuhksz-logo.png)
 
-**Update:** We will soon release the **SkinGPT-R1-7B** weights.
+*Update: We will soon release the SkinGPT-R1-7B weights.*
 
 SkinGPT-R1 is a dermatological reasoning vision language model for research and education. 🩺✨
 
 **The Chinese University of Hong Kong, Shenzhen**
-
-Repository:
-
-- GitHub: <https://github.com/yuhos16/SkinGPT-R1>
-- Clone: `git clone git@github.com:yuhos16/SkinGPT-R1.git`
 
 ## Disclaimer
 
