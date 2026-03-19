@@ -8,7 +8,7 @@ tags:
 ---
 ---
 
-# SkinGPT-R1
+# Trustworthy and Fair SkinGPT-R1 for Democratizing Dermatological Reasoning across Diverse Ethnicities
 
 ![CUHKSZ Logo](cuhksz-logo.png)
 
