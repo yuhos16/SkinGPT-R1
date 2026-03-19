@@ -1,13 +1,3 @@
----
-license: cc-by-nc-sa-4.0
-language:
-- zh
-- en
-tags:
-- medical
----
----
-
 # Trustworthy and Fair SkinGPT-R1 for Democratizing Dermatological Reasoning across Diverse Ethnicities
 
 ![CUHKSZ Logo](cuhksz-logo.png)
@@ -19,6 +9,11 @@ tags:
 SkinGPT-R1 is a dermatological reasoning vision language model for research and education. 🩺✨
 
 From **The Chinese University of Hong Kong, Shenzhen (CUHKSZ)**.
+
+Repository:
+
+- GitHub: <https://github.com/yuhos16/SkinGPT-R1>
+- Clone: `git clone git@github.com:yuhos16/SkinGPT-R1.git`
 
 ## Disclaimer
 
