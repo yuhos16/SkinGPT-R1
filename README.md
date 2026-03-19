@@ -4,11 +4,9 @@
 
 **Update:** We will soon release the **SkinGPT-R1-7B** weights.
 
-![SkinGPT-R1 Figure](figure.png)
-
 SkinGPT-R1 is a dermatological reasoning vision language model for research and education. 🩺✨
 
-From **The Chinese University of Hong Kong, Shenzhen (CUHKSZ)**.
+**The Chinese University of Hong Kong, Shenzhen**
 
 Repository:
 
@@ -155,6 +153,8 @@ Both API services expose the same endpoints:
 - `POST /v1/reset/{state_id}`
 - `POST /diagnose/stream`
 - `GET /health`
+
+![SkinGPT-R1 Figure](figure.png)
 
 ## Which One To Use
 
