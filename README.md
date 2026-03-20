@@ -1,3 +1,17 @@
+---
+license: cc-by-nc-sa-4.0
+language:
+- en
+- zh
+tags:
+- dermatology
+- medical
+- multimodal
+- vision-language-model
+- skin-lesion
+pipeline_tag: image-text-to-text
+---
+
 # Trustworthy and Fair SkinGPT-R1 for Democratizing Dermatological Reasoning across Diverse Ethnicities
 
 ![CUHKSZ Logo](cuhksz-logo.png)
