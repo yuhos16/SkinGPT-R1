@@ -66,12 +66,7 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-1. Put your model weights into:
-
-```text
-./checkpoints/full_precision
-./checkpoints/int4
-```
+1. Use the repository `./checkpoints` directory as the model weights directory.
 
 2. Prepare a test image, for example `./test_images/lesion.jpg`.
 
