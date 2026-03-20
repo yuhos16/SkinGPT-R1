@@ -1,16 +1,16 @@
 # Trustworthy and Fair SkinGPT-R1 for Democratizing Dermatological Reasoning across Diverse Ethnicities
 
-[![PDF](https://img.shields.io/badge/PDF-arXiv%3A2511.15242-B31B1B)](https://arxiv.org/abs/2511.15242)
-
 ![CUHKSZ Logo](cuhksz-logo.png)
-
-## Updates
-
-- We will soon release the SkinGPT-R1-7B weights.
 
 SkinGPT-R1 is a dermatological reasoning vision language model. 🩺✨
 
 **The Chinese University of Hong Kong, Shenzhen**
+
+[![PDF](https://img.shields.io/badge/PDF-arXiv%3A2511.15242-B31B1B)](https://arxiv.org/abs/2511.15242)
+
+## Updates
+
+- We will soon release the SkinGPT-R1-7B weights.
 
 ## Overview
 
