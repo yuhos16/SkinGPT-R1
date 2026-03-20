@@ -1,30 +1,14 @@
----
-license: cc-by-nc-sa-4.0
-language:
-- en
-- zh
-tags:
-- dermatology
-- medical
-- multimodal
-- vision-language-model
-- skin-lesion
-pipeline_tag: image-text-to-text
----
-
 # Trustworthy and Fair SkinGPT-R1 for Democratizing Dermatological Reasoning across Diverse Ethnicities
 
 ![CUHKSZ Logo](cuhksz-logo.png)
 
-*Update: We will soon release the SkinGPT-R1-7B weights.*
+## Updates
 
-SkinGPT-R1 is a dermatological reasoning vision language model for research and education. 🩺✨
+- We will soon release the SkinGPT-R1-7B weights.
+
+SkinGPT-R1 is a dermatological reasoning vision language model. 🩺✨
 
 **The Chinese University of Hong Kong, Shenzhen**
-
-## Disclaimer
-
-This project is for **research and educational use only**. It is **not** a substitute for professional medical advice, diagnosis, or treatment. ⚠️
 
 ## Overview
 
@@ -114,6 +98,10 @@ Both API services expose the same endpoints:
 - `GET /health`
 
 ![SkinGPT-R1 Figure](figure.png)
+
+## Disclaimer
+
+This project is for **research and educational use only**. It is **not** a substitute for professional medical advice, diagnosis, or treatment. ⚠️
 
 ## License
 
