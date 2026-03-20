@@ -2,11 +2,11 @@
 
 ![CUHKSZ Logo](cuhksz-logo.png)
 
+[![PDF](https://img.shields.io/badge/PDF-arXiv%3A2511.15242-B31B1B)](https://arxiv.org/abs/2511.15242)
+
 SkinGPT-R1 is a dermatological reasoning vision language model. 🩺✨
 
 **The Chinese University of Hong Kong, Shenzhen**
-
-[![PDF](https://img.shields.io/badge/PDF-arXiv%3A2511.15242-B31B1B)](https://arxiv.org/abs/2511.15242)
 
 ## Updates
 
