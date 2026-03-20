@@ -26,11 +26,6 @@ SkinGPT-R1 is a dermatological reasoning vision language model for research and 
 
 This project is for **research and educational use only**. It is **not** a substitute for professional medical advice, diagnosis, or treatment. ⚠️
 
-## License
-
-This repository is released under **CC BY-NC-SA 4.0**.
-See [LICENSE](LICENSE) for details.
-
 ## Overview
 
 ```text
@@ -44,16 +39,7 @@ SkinGPT-R1/
 └── README.md
 ```
 
-Model weights directory:
-
-- `./checkpoints`
-
-## Highlights
-
-- 🔬 Dermatology-oriented multimodal reasoning
-- 🧠 Full-precision and INT4 inference paths
-- 💬 Multi-turn chat and API serving
-- ⚡ RTX 50 series friendly SDPA-backed INT4 runtime
+This repo provides full-precision inference, INT4 quantized inference, multi-turn chat, and FastAPI serving.
 
 ## Install
 
@@ -76,19 +62,9 @@ conda activate skingpt-r1
 pip install -r requirements.txt
 ```
 
-This repo is currently aligned to the maintainers' working environment:
-
-- `torch==2.10.0`
-- `torchvision==0.25.0`
-- `transformers==5.3.0`
-- `qwen-vl-utils==0.0.14`
-
-For RTX 50 series, start with the default `sdpa` path and do not install `flash-attn`
-unless you have already verified that your CUDA stack supports it.
-
 ## Quick Start
 
-1. Clone the repository and enter it.
+1. Clone the repository.
 
 ```bash
 git clone <your-repo-url>
@@ -102,63 +78,46 @@ conda env create -f environment.yml
 conda activate skingpt-r1
 ```
 
-3. Put model weights under:
+3. Put your model weights into:
 
 ```text
-./checkpoints
+./checkpoints/full_precision
+./checkpoints/int4
 ```
 
-4. Prepare a test image, for example:
+4. Prepare a test image, for example `./test_images/lesion.jpg`.
 
-```text
-./test_images/lesion.jpg
-```
+5. Run a first test.
 
-5. Run one of the inference commands below.
-
-## Attention Backend Notes
-
-This repo uses two attention acceleration paths:
-
-- `flash_attention_2`: external package, optional
-- `sdpa`: PyTorch native scaled dot product attention
-
-Recommended choice:
-
-- 🚀 RTX 50 series: use `sdpa`
-- 🚀 A100 / RTX 3090 / RTX 4090 / H100 and other GPUs explicitly listed by the FlashAttention project: you can try `flash_attention_2`
-
-Practical notes:
-
-- The current repo pins `torch==2.10.0`, and SDPA is already built into PyTorch in this version.
-- FlashAttention's official README currently lists Ampere, Ada, and Hopper support for FlashAttention-2. It does not list RTX 50 / Blackwell consumer GPUs in that section, so this repo defaults to `sdpa` for that path.
-- Newer PyTorch releases continue improving SDPA, and this repo is already on a modern PyTorch stack. Even so, RTX 50 series should still default to `sdpa` unless `flash-attn` has been explicitly validated in your environment.
-
-If you are on an RTX 5090 and `flash-attn` is unavailable or unstable in your environment, use the INT4 path in this repo, which is already configured with `attn_implementation="sdpa"`.
-
-## Usage
-
-### Full Precision
-
-Single image:
+Full precision:
 
 ```bash
 bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
 ```
 
-If you are on a multi-GPU server and want to select one GPU:
+INT4:
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
+bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
 ```
 
-Multi-turn chat:
+## Usage
+
+### Full Precision
+
+Single image
+
+```bash
+bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
+```
+
+Multi-turn chat
 
 ```bash
 bash inference/full_precision/run_chat.sh --image ./test_images/lesion.jpg
 ```
 
-API service:
+API service
 
 ```bash
 bash inference/full_precision/run_api.sh
@@ -168,25 +127,19 @@ Default API port: `5900`
 
 ### INT4 Quantized
 
-Single image:
+Single image
 
 ```bash
 bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
 ```
 
-If you are on a multi-GPU server and want to select one GPU:
-
-```bash
-CUDA_VISIBLE_DEVICES=0 bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
-```
-
-Multi-turn chat:
+Multi-turn chat
 
 ```bash
 bash inference/int4_quantized/run_chat.sh --image ./test_images/lesion.jpg
 ```
 
-API service:
+API service
 
 ```bash
 bash inference/int4_quantized/run_api.sh
@@ -194,29 +147,11 @@ bash inference/int4_quantized/run_api.sh
 
 Default API port: `5901`
 
-The INT4 path uses:
+Notes
 
-- `bitsandbytes` 4-bit quantization
-- `attn_implementation="sdpa"`
-- the adapter-aware quantized model implementation in `inference/int4_quantized/`
-
-## GPU Selection
-
-You do not need to add `CUDA_VISIBLE_DEVICES=0` if the machine has only one visible GPU or if you are fine with the default CUDA device. 🧩
-
-Use it only when you want to pin the process to a specific GPU, for example on a multi-GPU server:
-
-```bash
-CUDA_VISIBLE_DEVICES=0 bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
-```
-
-The same pattern also works for:
-
-- `inference/full_precision/run_infer.sh`
-- `inference/full_precision/run_chat.sh`
-- `inference/full_precision/run_api.sh`
-- `inference/int4_quantized/run_chat.sh`
-- `inference/int4_quantized/run_api.sh`
+- On multi-GPU servers, prepend commands with `CUDA_VISIBLE_DEVICES=0` if you want to pin one GPU.
+- RTX 50 series should use the default `sdpa` path.
+- A100 / RTX 3090 / RTX 4090 / H100 can also try `flash_attention_2` if their CUDA stack supports it.
 
 ## API Endpoints
 
@@ -230,7 +165,7 @@ Both API services expose the same endpoints:
 
 ![SkinGPT-R1 Figure](figure.png)
 
-## Which One To Use
+## License
 
-- 🎯 Use `full_precision` when you want the original model path and best fidelity.
-- ⚡ Use `int4_quantized` when GPU memory is tight or when you are on an environment where `flash-attn` is not the practical option.
+This repository is released under **CC BY-NC-SA 4.0**.
+See [LICENSE](LICENSE) for details.
