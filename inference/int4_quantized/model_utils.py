@@ -19,7 +19,7 @@ from transformers.models.qwen2_5_vl.modeling_qwen2_5_vl import (
     Qwen2_5_VLForConditionalGeneration,
 )
 
-DEFAULT_MODEL_PATH = "./checkpoints/int4"
+DEFAULT_MODEL_PATH = "./checkpoints"
 DEFAULT_SYSTEM_PROMPT = (
     "You are a professional AI dermatology assistant. "
     "Reason step by step, keep the reasoning concise, avoid repetition, "

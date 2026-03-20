@@ -36,6 +36,7 @@ See [LICENSE](LICENSE) for details.
 ```text
 SkinGPT-R1/
 ├── checkpoints/
+├── environment.yml
 ├── inference/
 │   ├── full_precision/
 │   └── int4_quantized/
@@ -43,10 +44,9 @@ SkinGPT-R1/
 └── README.md
 ```
 
-Checkpoint paths:
+Model weights directory:
 
-- Full precision: `./checkpoints/full_precision`
-- INT4 quantized: `./checkpoints/int4`
+- `./checkpoints`
 
 ## Highlights
 
@@ -57,11 +57,64 @@ Checkpoint paths:
 
 ## Install
 
+`environment.yml` is a Conda environment definition file. It captures the Python version and the package versions we use, so other users can recreate a working environment from scratch with one command.
+
+Recommended from scratch:
+
 ```bash
-conda create -n skingpt-r1 python=3.10 -y
+cd SkinGPT-R1
+conda env create -f environment.yml
+conda activate skingpt-r1
+```
+
+Manual setup:
+
+```bash
+cd SkinGPT-R1
+conda create -n skingpt-r1 python=3.10.20 -y
 conda activate skingpt-r1
 pip install -r requirements.txt
 ```
+
+This repo is currently aligned to the maintainers' working environment:
+
+- `torch==2.10.0`
+- `torchvision==0.25.0`
+- `transformers==5.3.0`
+- `qwen-vl-utils==0.0.14`
+
+For RTX 50 series, start with the default `sdpa` path and do not install `flash-attn`
+unless you have already verified that your CUDA stack supports it.
+
+## Quick Start
+
+1. Clone the repository and enter it.
+
+```bash
+git clone <your-repo-url>
+cd SkinGPT-R1
+```
+
+2. Create the environment.
+
+```bash
+conda env create -f environment.yml
+conda activate skingpt-r1
+```
+
+3. Put model weights under:
+
+```text
+./checkpoints
+```
+
+4. Prepare a test image, for example:
+
+```text
+./test_images/lesion.jpg
+```
+
+5. Run one of the inference commands below.
 
 ## Attention Backend Notes
 
@@ -77,9 +130,9 @@ Recommended choice:
 
 Practical notes:
 
-- The current repo pins `torch==2.4.0`, and SDPA is already built into PyTorch in this version.
+- The current repo pins `torch==2.10.0`, and SDPA is already built into PyTorch in this version.
 - FlashAttention's official README currently lists Ampere, Ada, and Hopper support for FlashAttention-2. It does not list RTX 50 / Blackwell consumer GPUs in that section, so this repo defaults to `sdpa` for that path.
-- PyTorch 2.5 added a newer cuDNN SDPA backend for H100-class or newer GPUs, but this repo is pinned to PyTorch 2.4, so you should not assume those 2.5-specific gains here.
+- Newer PyTorch releases continue improving SDPA, and this repo is already on a modern PyTorch stack. Even so, RTX 50 series should still default to `sdpa` unless `flash-attn` has been explicitly validated in your environment.
 
 If you are on an RTX 5090 and `flash-attn` is unavailable or unstable in your environment, use the INT4 path in this repo, which is already configured with `attn_implementation="sdpa"`.
 
@@ -91,6 +144,12 @@ Single image:
 
 ```bash
 bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
+```
+
+If you are on a multi-GPU server and want to select one GPU:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
 ```
 
 Multi-turn chat:
@@ -113,6 +172,12 @@ Single image:
 
 ```bash
 bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
+```
+
+If you are on a multi-GPU server and want to select one GPU:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
 ```
 
 Multi-turn chat:

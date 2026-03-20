@@ -12,7 +12,7 @@ from transformers import (
     TextIteratorStreamer,
 )
 
-DEFAULT_MODEL_PATH = "./checkpoints/full_precision"
+DEFAULT_MODEL_PATH = "./checkpoints"
 DEFAULT_SYSTEM_PROMPT = "You are a professional AI dermatology assistant."
 
 
