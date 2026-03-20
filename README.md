@@ -48,7 +48,7 @@ This repo provides full-precision inference, INT4 quantized inference, multi-tur
 From scratch:
 
 ```bash
-git clone https://github.com/yuhos16/SkinGPT-R1.git
+git clone https://huggingface.co/yuhos16/SkinGPT-R1
 cd SkinGPT-R1
 conda env create -f environment.yml
 conda activate skingpt-r1
@@ -57,7 +57,7 @@ conda activate skingpt-r1
 Manual setup:
 
 ```bash
-git clone https://github.com/yuhos16/SkinGPT-R1.git
+git clone https://huggingface.co/yuhos16/SkinGPT-R1
 cd SkinGPT-R1
 conda create -n skingpt-r1 python=3.10.20 -y
 conda activate skingpt-r1
@@ -86,49 +86,16 @@ bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
 
 ## Usage
 
-### Full Precision
+| Mode | Full Precision | INT4 Quantized |
+| --- | --- | --- |
+| Single image | `bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg` | `bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg` |
+| Multi-turn chat | `bash inference/full_precision/run_chat.sh --image ./test_images/lesion.jpg` | `bash inference/int4_quantized/run_chat.sh --image ./test_images/lesion.jpg` |
+| API service | `bash inference/full_precision/run_api.sh` | `bash inference/int4_quantized/run_api.sh` |
 
-Single image
+Default API ports:
 
-```bash
-bash inference/full_precision/run_infer.sh --image ./test_images/lesion.jpg
-```
-
-Multi-turn chat
-
-```bash
-bash inference/full_precision/run_chat.sh --image ./test_images/lesion.jpg
-```
-
-API service
-
-```bash
-bash inference/full_precision/run_api.sh
-```
-
-Default API port: `5900`
-
-### INT4 Quantized
-
-Single image
-
-```bash
-bash inference/int4_quantized/run_infer.sh --image_path ./test_images/lesion.jpg
-```
-
-Multi-turn chat
-
-```bash
-bash inference/int4_quantized/run_chat.sh --image ./test_images/lesion.jpg
-```
-
-API service
-
-```bash
-bash inference/int4_quantized/run_api.sh
-```
-
-Default API port: `5901`
+- Full precision: `5900`
+- INT4 quantized: `5901`
 
 Notes
 
