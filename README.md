@@ -43,11 +43,12 @@ This repo provides full-precision inference, INT4 quantized inference, multi-tur
 
 ## Install
 
-`environment.yml` is a Conda environment definition file. It captures the Python version and the package versions we use, so other users can recreate a working environment from scratch with one command.
+`environment.yml` is a Conda environment definition file for reproducing the recommended runtime environment.
 
-Recommended from scratch:
+From scratch:
 
 ```bash
+git clone https://github.com/yuhos16/SkinGPT-R1.git
 cd SkinGPT-R1
 conda env create -f environment.yml
 conda activate skingpt-r1
@@ -56,6 +57,7 @@ conda activate skingpt-r1
 Manual setup:
 
 ```bash
+git clone https://github.com/yuhos16/SkinGPT-R1.git
 cd SkinGPT-R1
 conda create -n skingpt-r1 python=3.10.20 -y
 conda activate skingpt-r1
@@ -64,30 +66,16 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-1. Clone the repository.
-
-```bash
-git clone <your-repo-url>
-cd SkinGPT-R1
-```
-
-2. Create the environment.
-
-```bash
-conda env create -f environment.yml
-conda activate skingpt-r1
-```
-
-3. Put your model weights into:
+1. Put your model weights into:
 
 ```text
 ./checkpoints/full_precision
 ./checkpoints/int4
 ```
 
-4. Prepare a test image, for example `./test_images/lesion.jpg`.
+2. Prepare a test image, for example `./test_images/lesion.jpg`.
 
-5. Run a first test.
+3. Run a first test.
 
 Full precision:
 
