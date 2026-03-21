@@ -107,4 +107,5 @@ This project is for **research and educational use only**. It is **not** a subst
 
 ## License
 
-This repository is released under **MIT License**.
+This repository is released under the **MIT License**.
+See [LICENSE](LICENSE) for details.
