@@ -1,0 +1,1 @@
+Analyze the dermatologic image. Use only observable image evidence to construct a hierarchical clinical rationale, briefly consider relevant differential diagnoses, and state the single most likely final diagnosis.

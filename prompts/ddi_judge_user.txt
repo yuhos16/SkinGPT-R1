@@ -1,0 +1,10 @@
+[DDI reference diagnosis]
+{ground_truth}
+
+[Tested model response]
+---
+{model_output}
+---
+
+Extract the response's final selected diagnosis and judge semantic equivalence
+under the rules above. Return JSON only.

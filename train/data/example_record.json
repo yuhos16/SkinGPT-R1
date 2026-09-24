@@ -1,0 +1,18 @@
+[
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Describe the provided synthetic example."
+      },
+      {
+        "role": "assistant",
+        "content": "Synthetic placeholder for the training data schema; not a clinical training record."
+      }
+    ],
+    "images": [
+      "synthetic/example.jpg"
+    ],
+    "skin_labels": 0
+  }
+]

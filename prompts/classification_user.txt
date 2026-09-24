@@ -1,0 +1,4 @@
+Analyze the image, reason step by step, and provide the final diagnosis.
+Choose exactly one diagnosis from:
+{candidate_labels}
+Use the exact label spelling.

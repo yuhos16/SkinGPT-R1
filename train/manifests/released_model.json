@@ -1,0 +1,29 @@
+{
+  "repository": "yuhos16/SkinGPT-R1",
+  "repository_url": "https://huggingface.co/yuhos16/SkinGPT-R1",
+  "asset_revision": "bde3df21c089557f4c2c9387d0fd83a7f96d3555",
+  "checkpoint_directory": "checkpoint",
+  "author_confirmed_evaluated_model": true,
+  "weight_files": [
+    {
+      "path": "checkpoint/model-00001-of-00004.safetensors",
+      "sha256": "c3afb87c280d388d9ff8bc0b6364406622e568afe6dbb505376b2f0a0b09710a",
+      "size_bytes": 4968243370
+    },
+    {
+      "path": "checkpoint/model-00002-of-00004.safetensors",
+      "sha256": "66eaed39b71741cd2ab20a14dc14801fe3459b125effae84a569c0710dfc7eac",
+      "size_bytes": 4991495816
+    },
+    {
+      "path": "checkpoint/model-00003-of-00004.safetensors",
+      "sha256": "ee813c9638ef3d2c3bcfb0c934534d25343d3c7eda8c5eee6cb158ef6c30b34b",
+      "size_bytes": 4932751040
+    },
+    {
+      "path": "checkpoint/model-00004-of-00004.safetensors",
+      "sha256": "6cb24e9f0cab9db78bf9d94a79b3043420dd8e3f328b527f3d5ad7b705c1e8ce",
+      "size_bytes": 1701185806
+    }
+  ]
+}

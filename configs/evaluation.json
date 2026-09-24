@@ -1,0 +1,16 @@
+{
+  "batch_size": 16,
+  "max_new_tokens": 4096,
+  "attn_implementation": "flash_attention_2",
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "repetition_penalty": 1.0,
+  "seed": 42,
+  "do_sample": true,
+  "dtype": "bfloat16",
+  "allow_tf32": true,
+  "padding_side": "left",
+  "min_pixels": 3136,
+  "max_pixels": 1003520,
+  "use_cache": true
+}

@@ -1,0 +1,40 @@
+# Supervised-training configuration aligned with the manuscript Methods.
+model_name_or_path: ${oc.env:SKINGPT_MODEL_DIR,./external/base_model}
+stage: sft
+do_train: true
+finetuning_type: freeze
+
+dataset: skingpt_sft
+dataset_dir: ${oc.env:SKINGPT_DATASET_DIR,./data}
+template: qwen2_vl
+cutoff_len: 4096
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+remove_unused_columns: false 
+
+
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+ddp_find_unused_parameters: true
+learning_rate: 1.0e-4
+num_train_epochs: 10.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+ddp_timeout: 180000000
+flash_attn: auto
+
+output_dir: ${oc.env:SKINGPT_OUTPUT_DIR,./outputs/sft}
+run_name: SkinGPT-R1--MoE
+logging_steps: 10
+plot_loss: true
+report_to: tensorboard
+
+save_strategy: "steps"
+save_steps: 500
+save_total_limit: 5
+overwrite_output_dir: false
+
+seed: 42

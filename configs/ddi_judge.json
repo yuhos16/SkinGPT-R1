@@ -1,0 +1,29 @@
+{
+  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen3.8-max",
+  "temperature": 0.0,
+  "max_tokens": 300,
+  "response_format": {
+    "type": "json_object"
+  },
+  "extra_body": {
+    "enable_thinking": false
+  },
+  "timeout_seconds": 180.0,
+  "sdk_max_retries": 0,
+  "batch_evaluator_defaults": {
+    "concurrency": 16,
+    "requests_per_minute": 180,
+    "tokens_per_minute": 2000000,
+    "max_retries_after_first_attempt": 8,
+    "progress_every": 10,
+    "retry_initial_seconds": 2,
+    "retry_max_seconds": 120,
+    "retry_jitter_seconds": [
+      0.25,
+      1.5
+    ],
+    "rate_window_seconds": 60,
+    "model_output_tail_characters": 20000
+  }
+}
